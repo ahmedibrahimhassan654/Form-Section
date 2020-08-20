@@ -1,24 +1,35 @@
 //imrc
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 class LoginForm extends Component {
-   
-    render() { 
-        return ( 
+  render() {
+    return (
+      <div className='container'>
         <form>
-            <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                
-            </div>
-            <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1"/>
-            </div>
-           
-            <button type="submit" className="btn btn-primary">Submit</button>
+          <div className='form-group'>
+            <label htmlFor='username'>Email address</label>
+            <input
+              type='text'
+              className='form-control'
+              id='username'
+             
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='password'>Password</label>
+            <input
+              type='password'
+              className='form-control'
+              id='password'
+            />
+          </div>
+
+          <button type='submit' className='btn btn-primary'>
+            Submit
+          </button>
         </form>
-         );
-    }
+      </div>
+    )
+  }
 }
- 
-export default LoginForm;
+
+export default LoginForm
