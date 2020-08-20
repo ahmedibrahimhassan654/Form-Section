@@ -1,10 +1,24 @@
 //imrc
 import React, { Component } from 'react'
+
+
+
+
+
 class LoginForm extends Component {
+
+userName=React.createRef()
+
+
+
   handleSubmet = (e) => {
     e.preventDefault()
 
-    console.log('submeted')
+    //call the server 
+
+    const userName=this.userName.current.value
+
+    console.log(userName)
   }
 
   render() {
@@ -13,7 +27,7 @@ class LoginForm extends Component {
         <form onSubmit={this.handleSubmet}>
           <div className='form-group'>
             <label htmlFor='username'>Email address</label>
-            <input type='text' className='form-control' id='username' />
+            <input autoFocus ref={this.userName} type='text' className='form-control' id='username' />
           </div>
           <div className='form-group'>
             <label htmlFor='password'>Password</label>
