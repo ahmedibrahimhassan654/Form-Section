@@ -1,6 +1,8 @@
 //imrc
 import React, { Component } from 'react'
 
+import Input from './common/input'
+
 class LoginForm extends Component {
   state = {
     account: { username: '', password: '' },
@@ -23,28 +25,19 @@ class LoginForm extends Component {
     return (
       <div className='container'>
         <form onSubmit={this.handleSubmet}>
-          <div className='form-group'>
-            <label htmlFor='username'>Email address</label>
-            <input
-              value={account.username}
-              name='username'
-              onChange={this.handleChange}
-              type='text'
-              className='form-control'
-              id='username'
-            />
-          </div>
-          <div className='form-group'>
-            <label htmlFor='password'>Password</label>
-            <input
-              value={account.password}
-              name='password'
-              onChange={this.handleChange}
-              type='password'
-              className='form-control'
-              id='password'
-            />
-          </div>
+          <Input
+            name='username'
+            label='Email Address'
+            value={account.username}
+            onChange={this.handleChange}
+          />
+
+          <Input
+            name='password'
+            label='password'
+            value={account.password}
+            onChange={this.handleChange}
+          />
 
           <button type='submit' className='btn btn-primary'>
             Submit
