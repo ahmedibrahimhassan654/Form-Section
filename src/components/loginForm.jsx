@@ -27,7 +27,7 @@ class LoginForm extends Component {
             <label htmlFor='username'>Email address</label>
             <input
               value={account.username}
-              name={'username'}
+              name='username'
               onChange={this.handleChange}
               type='text'
               className='form-control'
@@ -38,7 +38,7 @@ class LoginForm extends Component {
             <label htmlFor='password'>Password</label>
             <input
               value={account.password}
-              name={'password'}
+              name='password'
               onChange={this.handleChange}
               type='password'
               className='form-control'
