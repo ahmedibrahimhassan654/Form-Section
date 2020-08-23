@@ -17,23 +17,40 @@ class LoginForm extends Component {
 
     return Object.keys(errors).length === 0 ? null : errors
   }
+
+  validateProperty=(input)=>{
+    if(input.name==='username'){
+      if(input.value.trim()==='') return 'username is required'
+    }
+      if(input.name==='password'){
+      if(input.value.trim()==='') return 'password is required'
+    }
+  }
+
+
   handleSubmet = (e) => {
     e.preventDefault()
     const errors = this.validate()
-    this.setState({ errors :errors||{}})
+    this.setState({ errors: errors || {} })
     if (errors) return
     console.log(errors)
     //call the server
     console.log('submitted')
   }
   handleChange = ({ currentTarget: input }) => {
+    const errors = { ...this.state.errors }
+    const errorMessage = this.validateProperty(input)
+    if (errorMessage) errors[input.name] = errorMessage
+    else delete errors[input.name]
+
     const account = { ...this.state.account }
     account[input.name] = input.value
-    this.setState({ account })
+
+    this.setState({ account ,errors })
   }
 
   render() {
-    const { account ,errors} = this.state
+    const { account, errors } = this.state
     return (
       <div className='container'>
         <form onSubmit={this.handleSubmet}>
