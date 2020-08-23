@@ -10,13 +10,19 @@ class LoginForm extends Component {
   }
 
   validate = () => {
-    return { username: 'user name is required' }
+    const errors = {}
+    const { account } = this.state
+    if (account.username.trim() === '') errors.username = 'username is required'
+    if (account.password.trim() === '') errors.password = 'password is required'
+
+    return Object.keys(errors).length === 0 ? null : errors
   }
   handleSubmet = (e) => {
     e.preventDefault()
     const errors = this.validate()
     this.setState({ errors })
     if (errors) return
+    console.log(errors)
     //call the server
     console.log('submitted')
   }
