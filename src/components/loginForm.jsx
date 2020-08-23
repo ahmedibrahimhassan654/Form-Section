@@ -20,7 +20,7 @@ class LoginForm extends Component {
   handleSubmet = (e) => {
     e.preventDefault()
     const errors = this.validate()
-    this.setState({ errors })
+    this.setState({ errors :errors||{}})
     if (errors) return
     console.log(errors)
     //call the server
@@ -33,7 +33,7 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { account } = this.state
+    const { account ,errors} = this.state
     return (
       <div className='container'>
         <form onSubmit={this.handleSubmet}>
@@ -42,6 +42,7 @@ class LoginForm extends Component {
             label='Email Address'
             value={account.username}
             onChange={this.handleChange}
+            error={errors.username}
           />
 
           <Input
@@ -49,6 +50,7 @@ class LoginForm extends Component {
             label='password'
             value={account.password}
             onChange={this.handleChange}
+            error={errors.password}
           />
 
           <button type='submit' className='btn btn-primary'>
