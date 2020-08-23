@@ -6,11 +6,17 @@ import Input from './common/input'
 class LoginForm extends Component {
   state = {
     account: { username: '', password: '' },
+    errors: {},
   }
 
+  validate = () => {
+    return { username: 'user name is required' }
+  }
   handleSubmet = (e) => {
     e.preventDefault()
-
+    const errors = this.validate()
+    this.setState({ errors })
+    if (errors) return
     //call the server
     console.log('submitted')
   }
