@@ -73,8 +73,12 @@ class LoginForm extends Component {
             error={errors.password}
           />
 
-          <button type='submit' className='btn btn-primary'>
-            Submit
+          <button
+            disabled={this.validate()}
+            type='submit'
+            className='btn btn-primary'
+          >
+            login
           </button>
         </form>
       </div>
